@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (recorderView.isRecording()) {
                     recorderView.stopRecording();
+                    button.setText(R.string.label_record);
                 } else {
                     recorderView.startRecording();
+                    button.setText(R.string.label_stop);
                 }
             }
         });
