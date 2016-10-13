@@ -138,7 +138,7 @@ public class RecorderView extends SurfaceView implements SurfaceHolder.Callback 
     }
 
     //Call when activity pause
-    public void onActivityPause() {
+    public void onActivityDestroy() {
         releaseMediaRecorder();       // if you are using MediaRecorder, release it first
         releaseCamera();              // release the camera immediately on pause event
     }

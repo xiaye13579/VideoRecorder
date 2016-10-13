@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onDestroy() {
+        super.onDestroy();
         if (null != recorderView)
-            recorderView.onActivityPause();
+            recorderView.onActivityDestroy();
     }
 
     private boolean shouldShowRequestPermissionRationale(String[] permissions) {
