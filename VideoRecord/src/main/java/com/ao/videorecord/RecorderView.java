@@ -116,7 +116,7 @@ public class RecorderView extends SurfaceView implements SurfaceHolder.Callback 
         try {
             camera.setPreviewDisplay(surfaceHolder);
             camera.startPreview();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -148,6 +148,10 @@ public class RecorderView extends SurfaceView implements SurfaceHolder.Callback 
         mediaRecorder.setOutputFile(filename);
     }
 
+    public String getOutputFileLocation() {
+        return outputFileLocation;
+    }
+
     public void startRecording() {
         releaseCamera();
         if (!prepareMediaRecorder()) {
@@ -174,6 +178,8 @@ public class RecorderView extends SurfaceView implements SurfaceHolder.Callback 
             mediaRecorder.reset();   // clear recorder configuration
             mediaRecorder.release(); // release the recorder object
             mediaRecorder = new MediaRecorder();
+        }
+        if (null != camera) {
             camera.lock();           // lock camera for later use
         }
     }

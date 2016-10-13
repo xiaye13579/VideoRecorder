@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 if (recorderView.isRecording()) {
                     recorderView.stopRecording();
                     button.setText(R.string.label_record);
+                    Intent intent = new Intent(MainActivity.this, PreviewActivity.class);
+                    intent.putExtra("path", recorderView.getOutputFileLocation());
+                    startActivity(intent);
                 } else {
                     recorderView.startRecording();
                     button.setText(R.string.label_stop);
@@ -52,9 +56,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if (null != recorderView) {
+            recorderView.setOutputFile(getExternalFilesDir(null).getAbsolutePath() + "/" + System.currentTimeMillis() + ".mp4");
+        }
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
-        recorderView.onActivityPause();
+        if (null != recorderView)
+            recorderView.onActivityPause();
     }
 
     private boolean shouldShowRequestPermissionRationale(String[] permissions) {

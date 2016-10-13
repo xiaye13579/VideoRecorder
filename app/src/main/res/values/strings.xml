@@ -3,4 +3,5 @@
     <string name="permission_request">This sample needs permission for camera and audio recording.</string>
     <string name="label_record">Record</string>
     <string name="label_stop">Stop</string>
+    <string name="label_play">Play</string>
 </resources>
