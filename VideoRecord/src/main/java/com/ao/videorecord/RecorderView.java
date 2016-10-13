@@ -52,7 +52,7 @@ public class RecorderView extends SurfaceView implements SurfaceHolder.Callback 
         prepareMediaRecorder();
     }
 
-    private boolean prepareMediaRecorder() {
+    public boolean prepareMediaRecorder() {
         camera = getCameraInstance();
 
         if (camera == null) {

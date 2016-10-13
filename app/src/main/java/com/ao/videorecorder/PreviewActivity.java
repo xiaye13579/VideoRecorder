@@ -47,6 +47,7 @@ public class PreviewActivity extends AppCompatActivity {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.start();
+                button.setText(R.string.label_pause);
             }
         });
 
@@ -55,9 +56,18 @@ public class PreviewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (videoView.isPlaying()) {
                     videoView.pause();
+                    button.setText(R.string.label_play);
                 } else {
                     videoView.start();
+                    button.setText(R.string.label_pause);
                 }
+            }
+        });
+
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                button.setText(R.string.label_play);
             }
         });
     }

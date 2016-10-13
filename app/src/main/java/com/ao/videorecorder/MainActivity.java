@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if (null != recorderView) {
             recorderView.setOutputFile(getExternalFilesDir(null).getAbsolutePath() + "/" + System.currentTimeMillis() + ".mp4");
+            recorderView.prepareMediaRecorder();
         }
     }
 

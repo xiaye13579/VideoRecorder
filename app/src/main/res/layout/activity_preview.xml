@@ -18,7 +18,7 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_play" />
+        android:text="@string/label_pause" />
 
 
 </LinearLayout>

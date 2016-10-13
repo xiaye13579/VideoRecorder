@@ -4,4 +4,5 @@
     <string name="label_record">Record</string>
     <string name="label_stop">Stop</string>
     <string name="label_play">Play</string>
+    <string name="label_pause">pause</string>
 </resources>
